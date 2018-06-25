@@ -30,7 +30,6 @@ public class SplashActivity extends AppCompatActivity {
         getEspaInformation();
     }
 
-
     private void getEspaInformation(){
 
         Retrofit retrofit = new Retrofit.Builder().
