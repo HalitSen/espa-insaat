@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Espa</string>
+    <string name="progress_text">progres</string>
+    <string name="about_us_menu_text">Hakkımızda</string>
+    <string name="galeri_menu_text">Galeri</string>
+    <string name="contact_menu_text">İletişim</string>
+    <string name="online_pay_text">ONLİNE ÖDEME \nSİSTEMLERİ</string>
 </resources>
