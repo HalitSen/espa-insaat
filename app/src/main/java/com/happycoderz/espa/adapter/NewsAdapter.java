@@ -34,16 +34,17 @@ public class NewsAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
         LayoutInflater inflater = LayoutInflater.from(context);
 
-        View layout = inflater.inflate(R.layout.espa_news_first_layout, container, false);
+        ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.espa_news_first_layout, container, false);
 
         TextView newsTitle = (TextView) layout.findViewById(R.id.espa_news_text);
         newsTitle.setText(espaResponse.news.get(position).getTitle());
-       return layout;
+        container.addView(layout);
+        return layout;
     }
 
     @Override
     public boolean isViewFromObject(View view, Object object) {
-        return false;
+        return view == object;
     }
 
     @Override

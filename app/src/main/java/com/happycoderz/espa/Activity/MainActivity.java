@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
         newsAdapter = new NewsAdapter(this);
         mViewPager.setAdapter(newsAdapter);
+
         mViewPager.addOnPageChangeListener(this);
         categories = new ArrayList<Category>();
         categories = espaResponse.categories;
