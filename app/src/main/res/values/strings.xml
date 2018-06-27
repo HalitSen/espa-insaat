@@ -5,4 +5,5 @@
     <string name="galeri_menu_text">Galeri</string>
     <string name="contact_menu_text">İletişim</string>
     <string name="online_pay_text">ONLİNE ÖDEME \nSİSTEMLERİ</string>
+    <string name="title_activity_contact">Map</string>
 </resources>

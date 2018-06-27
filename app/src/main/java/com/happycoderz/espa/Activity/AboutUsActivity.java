@@ -45,9 +45,6 @@ public class AboutUsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_about_us);
         ButterKnife.bind(this);
 
-        setSupportActionBar(aboutUsToolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-
         getEspaResponse();
         setTextsByResponse();
     }
@@ -70,26 +67,5 @@ public class AboutUsActivity extends AppCompatActivity {
     void onBackIconClicked() {
         startActivity(new Intent(AboutUsActivity.this, MainActivity.class));
         finish();
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch (item.getItemId()) {
-            case R.id.about_us:
-                break;
-            case R.id.galery:
-                Toast.makeText(this, "galery clicked", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.contact:
-                Toast.makeText(this, "contac clicked", Toast.LENGTH_SHORT).show();
-                break;
-        }
-        return super.onOptionsItemSelected(item);
     }
 }
