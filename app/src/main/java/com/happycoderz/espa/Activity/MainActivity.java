@@ -1,5 +1,6 @@
 package com.happycoderz.espa.Activity;
 
+import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -77,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.main_menu,menu);
+        getMenuInflater().inflate(R.menu.menu,menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -86,11 +87,15 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
         switch (item.getItemId()){
             case R.id.about_us:
-                Toast.makeText(this,"about us clicked",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this,AboutUsActivity.class));
+                finish();
+                break;
             case R.id.galery:
                 Toast.makeText(this,"galery clicked",Toast.LENGTH_SHORT).show();
+                break;
             case R.id.contact:
                 Toast.makeText(this,"contac clicked",Toast.LENGTH_SHORT).show();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
