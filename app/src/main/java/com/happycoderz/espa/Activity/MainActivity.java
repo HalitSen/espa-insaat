@@ -1,16 +1,13 @@
 package com.happycoderz.espa.Activity;
 
-import android.graphics.Color;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView;
 import com.happycoderz.espa.R;
@@ -72,9 +69,9 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         categories = espaResponse.categories;
 
         expandableListViewAdapter = new ExpandableListViewAdapter(this,categories);
-
         expandablListView.setAdapter(expandableListViewAdapter);
         expandablListView.setExpanded(true);
+        expandablListView.setFocusable(false);
     }
 
     @Override
@@ -94,9 +91,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
                 Toast.makeText(this,"galery clicked",Toast.LENGTH_SHORT).show();
             case R.id.contact:
                 Toast.makeText(this,"contac clicked",Toast.LENGTH_SHORT).show();
-
         }
-
         return super.onOptionsItemSelected(item);
     }
 
