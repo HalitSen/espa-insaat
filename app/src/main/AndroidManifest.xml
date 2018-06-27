@@ -41,7 +41,8 @@
 
         <activity
             android:name=".Activity.ContactActivity"
-            android:label="@string/title_activity_contact"></activity>
+            android:label="@string/title_activity_contact" />
+        <activity android:name=".Activity.GaleryActivity"></activity>
     </application>
 
 </manifest>
