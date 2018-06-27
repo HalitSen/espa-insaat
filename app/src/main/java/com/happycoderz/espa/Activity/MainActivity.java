@@ -92,9 +92,10 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
                 break;
             case R.id.galery:
                 Toast.makeText(this,"galery clicked",Toast.LENGTH_SHORT).show();
+                //TODO galery yap
                 break;
             case R.id.contact:
-                Toast.makeText(this,"contac clicked",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, ContactActivity.class));
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -126,7 +127,6 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
                 break;
         }
     }
-
     @Override
     public void onPageScrollStateChanged(int state) {
 
