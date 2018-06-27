@@ -91,8 +91,8 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
                 finish();
                 break;
             case R.id.galery:
-                Toast.makeText(this,"galery clicked",Toast.LENGTH_SHORT).show();
-                //TODO galery yap
+                startActivity(new Intent(MainActivity.this,GaleryActivity.class));
+                finish();
                 break;
             case R.id.contact:
                 startActivity(new Intent(MainActivity.this, ContactActivity.class));
