@@ -6,4 +6,14 @@
     <string name="contact_menu_text">İletişim</string>
     <string name="online_pay_text">ONLİNE ÖDEME \nSİSTEMLERİ</string>
     <string name="title_activity_contact">Map</string>
+    <string name="about_us_header_text">KURUMSAL</string>
+    <string name="about_us_label_text">HAKKIMIZDA</string>
+    <string name="mission_and_vision_text">MİSYONUMUZ ve VİSYONUMUZ</string>
+    <string name="quality_policy_text">KALİTE POLİTİKAMIZ</string>
+    <string name="contact_header_text">İLETİŞİM</string>
+    <string name="contact_info_label_text">İletişim Bilgileri</string>
+    <string name="address_text">address</string>
+    <string name="phone_text">phone</string>
+    <string name="email_text">email</string>
+    <string name="galery_header_text">GALERİ</string>
 </resources>
