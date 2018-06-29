@@ -18,4 +18,6 @@
     <string name="galery_header_text">GALERİ</string>
     <string name="espa_grup_text">ESPA GRUP</string>
     <string name="sub_category_text">sub category text</string>
+    <string name="product_toolbar_title_text">ÜRÜNLER</string>
+    <string name="product_label_text">pvc pencere sistemleri</string>
 </resources>

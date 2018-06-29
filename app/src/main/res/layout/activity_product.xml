@@ -3,13 +3,57 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#efefef"
     android:layout_height="match_parent"
     tools:context="com.happycoderz.espa.Activity.ProductActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/product_toolbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Product activity"
-        android:textSize="45sp"/>
+        android:gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimaryDark">
+
+        <ImageView
+            android:id="@+id/product_back_icon"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:src="@drawable/back_icon"/>
+
+        <TextView
+            android:id="@+id/product_toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/product_toolbar_title_text"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/product_label_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/product_toolbar"
+        android:background="#e6e6e6"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center"
+        android:text="@string/product_label_text"
+        android:textColor="#000"
+        android:textSize="24sp" />
+
+    <com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView
+        android:id="@+id/product_list_view"
+        android:layout_width="match_parent"
+        android:divider="@null"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/product_label_text">
+
+    </com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView>
+
 
 </RelativeLayout>
