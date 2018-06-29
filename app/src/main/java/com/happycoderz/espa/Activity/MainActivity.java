@@ -147,13 +147,15 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
         if (!(espaResponse.categories.get(position).products == null)) {
 
-            startActivity(new Intent(MainActivity.this, ProductActivity.class));
+            Intent intentProduct = new Intent(this,ProductActivity.class);
+            intentProduct.putExtra("productPosition",position);
+            startActivity(intentProduct);
 
         }else if(!(espaResponse.categories.get(position).subCategories == null)){
 
             Intent intentSubCategory = new Intent(this,SubCategoryActivity.class);
 
-            intentSubCategory.putExtra("subCategories", position);
+            intentSubCategory.putExtra("subCategoryPosition", position);
             startActivity(intentSubCategory);
         }
     }

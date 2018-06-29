@@ -44,7 +44,7 @@ public class SubCategoryActivity extends AppCompatActivity {
 
         int position = -1;
 
-        position = getIntent().getIntExtra("subCategories", -1);
+        position = getIntent().getIntExtra("subCategoryPosition", -1);
         EspaResponse r = (CacheHelper.getInstance(this).getObject("espaInfo", EspaResponse.class));
         subCategories = new ArrayList<SubCategory>();
         subCategories = r.categories.get(position).getSubCategories();
