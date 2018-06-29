@@ -42,7 +42,9 @@
         <activity
             android:name=".Activity.ContactActivity"
             android:label="@string/title_activity_contact" />
-        <activity android:name=".Activity.GaleryActivity"></activity>
+        <activity android:name=".Activity.GaleryActivity" />
+        <activity android:name=".Activity.SubCategoryActivity" />
+        <activity android:name=".Activity.ProductActivity"></activity>
     </application>
 
 </manifest>

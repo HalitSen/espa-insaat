@@ -75,7 +75,6 @@ public class ContactActivity extends FragmentActivity implements OnMapReadyCallb
     }
     @OnClick(R.id.contact_us_back_icon)
     void onContactBackClicked(){
-        startActivity(new Intent(ContactActivity.this,MainActivity.class));
         finish();
     }
 }

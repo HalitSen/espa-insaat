@@ -3,9 +3,10 @@ package com.happycoderz.espa.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Category {
+public class Category implements Serializable{
 
     @SerializedName("id")
     String id;
@@ -16,10 +17,14 @@ public class Category {
     @SerializedName("products")
     public ArrayList<Product> products;
 
-    public Category(String id, String title, ArrayList<Product> products) {
+    @SerializedName("sub_categories")
+    public ArrayList<SubCategory> subCategories;
+
+    public Category(String id, String title, ArrayList<Product> products, ArrayList<SubCategory> subCategories) {
         this.id = id;
         this.title = title;
         this.products = products;
+        this.subCategories = subCategories;
     }
 
     public Category() {
@@ -47,6 +52,14 @@ public class Category {
 
     public void setProducts(ArrayList<Product> products) {
         this.products = products;
+    }
+
+    public ArrayList<SubCategory> getSubCategories() {
+        return subCategories;
+    }
+
+    public void setSubCategories(ArrayList<SubCategory> subCategories) {
+        this.subCategories = subCategories;
     }
 }
 
