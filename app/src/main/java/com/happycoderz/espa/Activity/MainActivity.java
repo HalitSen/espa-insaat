@@ -116,24 +116,6 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     @Override
     public void onPageSelected(int position) {
 
-        switch (position) {
-            case 0:
-                circleOne.setImageResource(R.drawable.full_circle_image);
-                circleTwo.setImageResource(R.drawable.empty_circle_image);
-                circleThree.setImageResource(R.drawable.empty_circle_image);
-                break;
-            //TODO delete circles codes and xml files
-            case 1:
-                circleOne.setImageResource(R.drawable.empty_circle_image);
-                circleTwo.setImageResource(R.drawable.full_circle_image);
-                circleThree.setImageResource(R.drawable.empty_circle_image);
-                break;
-            case 2:
-                circleOne.setImageResource(R.drawable.empty_circle_image);
-                circleTwo.setImageResource(R.drawable.empty_circle_image);
-                circleThree.setImageResource(R.drawable.full_circle_image);
-                break;
-        }
     }
 
     @Override

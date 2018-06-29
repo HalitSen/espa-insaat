@@ -50,7 +50,24 @@ public class ProductActivity extends AppCompatActivity {
         subCategory = new SubCategory();
 
         Intent intent = getIntent();
+        getIntentExtra(intent);
+        }
 
+    @OnClick(R.id.product_back_icon)
+    void onProductBackIconClicked(){
+        finish();
+    }
+
+    @OnItemClick(R.id.product_list_view)
+    void onProductListClicked(AdapterView<?> parent, int position){
+
+        product =products.get(position);
+        Intent intentDetail = new Intent(this,ProductDetailActivity.class);
+        intentDetail.putExtra("productDetail",product);
+        startActivity(intentDetail);
+    }
+
+    private void getIntentExtra(Intent intent){
         if(intent.hasExtra("productPosition")){
             categoryPosition = intent.getIntExtra("productPosition", -1);
             espaResponse = (CacheHelper.getInstance(this).getObject("espaInfo", EspaResponse.class));
@@ -68,19 +85,5 @@ public class ProductActivity extends AppCompatActivity {
             productListView.setAdapter(productAdapter);
             productLabelText.setText(products.get(position).getTitle());
         }
-        }
-
-    @OnClick(R.id.product_back_icon)
-    void onProductBackIconClicked(){
-        finish();
-    }
-
-    @OnItemClick(R.id.product_list_view)
-    void onProductListClicked(AdapterView<?> parent, int position){
-
-        product =products.get(position);
-        Intent intentDetail = new Intent(this,ProductDetailActivity.class);
-        intentDetail.putExtra("productDetail",product);
-        startActivity(intentDetail);
     }
 }
