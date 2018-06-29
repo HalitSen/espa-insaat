@@ -61,6 +61,7 @@ public class Category implements Serializable{
     public void setSubCategories(ArrayList<SubCategory> subCategories) {
         this.subCategories = subCategories;
     }
+
 }
 
 

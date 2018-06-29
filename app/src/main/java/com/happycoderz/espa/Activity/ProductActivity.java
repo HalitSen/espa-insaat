@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -20,12 +21,14 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnItemClick;
 
 public class ProductActivity extends AppCompatActivity {
 
     ArrayList<Product> products;
     EspaResponse espaResponse;
     ProductAdapter productAdapter;
+    Product product;
 
     @BindView(R.id.product_list_view)
     ExpandableHeightListView productListView;
@@ -33,6 +36,7 @@ public class ProductActivity extends AppCompatActivity {
     TextView productLabelText;
     @BindView(R.id.product_back_icon)
     ImageView productBackIcon;
+    int categoryPosition = -1;
 
 
     @Override
@@ -41,17 +45,20 @@ public class ProductActivity extends AppCompatActivity {
         setContentView(R.layout.activity_product);
         ButterKnife.bind(this);
         products = new ArrayList<Product>();
+        product = new Product();
         espaResponse = new EspaResponse();
 
-        int position = -1;
 
-        position = getIntent().getIntExtra("productPosition", -1);
+
+        categoryPosition = getIntent().getIntExtra("productPosition", -1);
         espaResponse = (CacheHelper.getInstance(this).getObject("espaInfo", EspaResponse.class));
-        products = espaResponse.categories.get(position).getProducts();
+        products = espaResponse.categories.get(categoryPosition).getProducts();
+
+        //TODO buraya gelene kadar product ın subcategori dn mi geldiğini yoksa direk mi geldiğini kontrol edilecek.
 
         productAdapter = new ProductAdapter(this, products);
         productListView.setAdapter(productAdapter);
-        productLabelText.setText(espaResponse.categories.get(position).getTitle());
+        productLabelText.setText(espaResponse.categories.get(categoryPosition).getTitle());
 
         Log.v("product1 : ", products.get(0).getTitle());
     }
@@ -60,4 +67,18 @@ public class ProductActivity extends AppCompatActivity {
     void onProductBackIconClicked(){
         finish();
     }
+
+    @OnItemClick(R.id.product_list_view)
+    void onProductListClicked(AdapterView<?> parent, int position){
+
+        product =espaResponse.categories.get(categoryPosition).products.get(position);
+        // 0. product ı gönderiyorum
+
+        Intent intentDetail = new Intent(this,ProductDetailActivity.class);
+        intentDetail.putExtra("productDetail",product);
+        startActivity(intentDetail);
+
+    }
+
+
 }

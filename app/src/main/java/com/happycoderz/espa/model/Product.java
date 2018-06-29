@@ -18,11 +18,14 @@ public class Product implements Serializable{
     @SerializedName("image")
     String image;
 
-    public Product(String id, String title, String code, String image) {
+    String description;
+
+    public Product(String id, String title, String code, String image, String description) {
         this.id = id;
         this.title = title;
         this.code = code;
         this.image = image;
+        this.description = description;
     }
 
     public Product() {
@@ -58,5 +61,13 @@ public class Product implements Serializable{
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
