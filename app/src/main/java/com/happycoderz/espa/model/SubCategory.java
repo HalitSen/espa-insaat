@@ -1,10 +1,12 @@
 package com.happycoderz.espa.model;
 
+
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
-public class Product implements Serializable{
+public class SubCategory implements Serializable {
 
     @SerializedName("id")
     String id;
@@ -12,20 +14,16 @@ public class Product implements Serializable{
     @SerializedName("title")
     String title;
 
-    @SerializedName("code")
-    String code;
+    @SerializedName("products")
+    public ArrayList<Product> product;
 
-    @SerializedName("image")
-    String image;
-
-    public Product(String id, String title, String code, String image) {
+    public SubCategory(String id, String title, ArrayList<Product> product) {
         this.id = id;
         this.title = title;
-        this.code = code;
-        this.image = image;
+        this.product = product;
     }
 
-    public Product() {
+    public SubCategory() {
     }
 
     public String getId() {
@@ -44,19 +42,11 @@ public class Product implements Serializable{
         this.title = title;
     }
 
-    public String getCode() {
-        return code;
+    public ArrayList<Product> getProduct() {
+        return product;
     }
 
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
+    public void setProduct(ArrayList<Product> product) {
+        this.product = product;
     }
 }

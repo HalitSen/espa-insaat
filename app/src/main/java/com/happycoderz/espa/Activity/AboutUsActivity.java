@@ -65,7 +65,6 @@ public class AboutUsActivity extends AppCompatActivity {
     }
     @OnClick(R.id.about_us_back_icon)
     void onBackIconClicked() {
-        startActivity(new Intent(AboutUsActivity.this, MainActivity.class));
         finish();
     }
 }

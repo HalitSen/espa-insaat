@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -17,11 +18,14 @@ import com.happycoderz.espa.adapter.NewsAdapter;
 import com.happycoderz.espa.helper.CacheHelper;
 import com.happycoderz.espa.model.Category;
 import com.happycoderz.espa.model.EspaResponse;
+import com.happycoderz.espa.model.Product;
+import com.happycoderz.espa.model.SubCategory;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnItemClick;
 
 public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener {
 
@@ -43,6 +47,9 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     ExpandableListViewAdapter expandableListViewAdapter;
 
     ArrayList<Category> categories;
+    ArrayList<Product> products;
+    ArrayList<SubCategory> subCategories;
+
 
     @BindView(R.id.expandable_list_view)
     ExpandableHeightListView expandablListView;
@@ -60,16 +67,18 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
         espaResponse = cacheHelper.getObject("espaInfo", EspaResponse.class);
 
-        Log.v("espa from Cache",espaResponse.categories.get(0).getTitle());
+        Log.v("espa from Cache", espaResponse.categories.get(0).getTitle());
 
         newsAdapter = new NewsAdapter(this);
         mViewPager.setAdapter(newsAdapter);
 
         mViewPager.addOnPageChangeListener(this);
         categories = new ArrayList<Category>();
+        products = new ArrayList<Product>();
+        subCategories = new ArrayList<SubCategory>();
         categories = espaResponse.categories;
 
-        expandableListViewAdapter = new ExpandableListViewAdapter(this,categories);
+        expandableListViewAdapter = new ExpandableListViewAdapter(this, categories);
         expandablListView.setAdapter(expandableListViewAdapter);
         expandablListView.setExpanded(true);
         expandablListView.setFocusable(false);
@@ -78,21 +87,19 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.menu,menu);
+        getMenuInflater().inflate(R.menu.menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.about_us:
-                startActivity(new Intent(MainActivity.this,AboutUsActivity.class));
-                finish();
+                startActivity(new Intent(MainActivity.this, AboutUsActivity.class));
                 break;
             case R.id.galery:
-                startActivity(new Intent(MainActivity.this,GaleryActivity.class));
-                finish();
+                startActivity(new Intent(MainActivity.this, GaleryActivity.class));
                 break;
             case R.id.contact:
                 startActivity(new Intent(MainActivity.this, ContactActivity.class));
@@ -115,6 +122,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
                 circleTwo.setImageResource(R.drawable.empty_circle_image);
                 circleThree.setImageResource(R.drawable.empty_circle_image);
                 break;
+            //TODO delete circles codes and xml files
             case 1:
                 circleOne.setImageResource(R.drawable.empty_circle_image);
                 circleTwo.setImageResource(R.drawable.full_circle_image);
@@ -127,8 +135,27 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
                 break;
         }
     }
+
     @Override
     public void onPageScrollStateChanged(int state) {
 
     }
+
+    @OnItemClick(R.id.expandable_list_view)
+    void onCategoryListClick(AdapterView<?> parent, int position) {
+
+
+        if (!(espaResponse.categories.get(position).products == null)) {
+
+            startActivity(new Intent(MainActivity.this, ProductActivity.class));
+
+        }else if(!(espaResponse.categories.get(position).subCategories == null)){
+
+            Intent intentSubCategory = new Intent(this,SubCategoryActivity.class);
+
+            intentSubCategory.putExtra("subCategories", position);
+            startActivity(intentSubCategory);
+        }
+    }
+
 }

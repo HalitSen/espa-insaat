@@ -49,7 +49,6 @@ public class GaleryActivity extends AppCompatActivity {
 
     @OnClick(R.id.galery_back_icon)
     void onbackClicked(){
-        startActivity(new Intent(GaleryActivity.this,MainActivity.class));
         finish();
     }
 }
