@@ -5,6 +5,7 @@ import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnItemClick;
 
 public class SubCategoryActivity extends AppCompatActivity {
 
@@ -48,10 +50,6 @@ public class SubCategoryActivity extends AppCompatActivity {
         EspaResponse r = (CacheHelper.getInstance(this).getObject("espaInfo", EspaResponse.class));
         subCategories = new ArrayList<SubCategory>();
         subCategories = r.categories.get(position).getSubCategories();
-        // position 6 dır
-
-        Log.v("hasSubTitle",r.categories.get(position).getTitle());
-        Log.v("firsSubCategory : ", subCategories.get(0).getTitle());
 
         subCategoryAdapter = new SubCategoryAdapter(this,subCategories);
         subCatListView.setAdapter(subCategoryAdapter);
@@ -59,8 +57,18 @@ public class SubCategoryActivity extends AppCompatActivity {
         subCatListView.setExpanded(true);
         subCatListView.setFocusable(false);
     }
+
     @OnClick(R.id.sub_cat_back_icon)
     void onSubCatBackClicked(){
         finish();
+    }
+    @OnItemClick(R.id.sub_cat_list_view)
+    void onSubCatListClicked(AdapterView<?> parent, int position){
+
+        Intent subCatToProduct = new Intent(this,ProductActivity.class);
+        //    i.  sub categori yi karşıya gönderdim
+        subCatToProduct.putExtra("subCat",subCategories.get(position));
+        subCatToProduct.putExtra("position",position);
+        startActivity(subCatToProduct);
     }
 }
