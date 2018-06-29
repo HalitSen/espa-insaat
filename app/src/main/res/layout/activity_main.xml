@@ -44,40 +44,6 @@
 
             </android.support.v4.view.ViewPager>
 
-            <LinearLayout
-                android:id="@+id/circles"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/frame_layout"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="12dp"
-                android:orientation="horizontal"
-                android:visibility="gone">
-
-                <ImageView
-                    android:id="@+id/circle_1"
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/full_circle_image" />
-
-                <ImageView
-                    android:id="@+id/circle_2"
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginRight="12dp"
-                    android:src="@drawable/empty_circle_image" />
-
-                <ImageView
-                    android:id="@+id/circle_3"
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/empty_circle_image" />
-            </LinearLayout>
-
             <FrameLayout
                 android:id="@+id/frame_layout"
                 android:layout_width="match_parent"

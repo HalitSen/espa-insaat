@@ -55,9 +55,9 @@ public class AboutUsActivity extends AppCompatActivity {
         espaResponse = cacheHelper.getObject("espaInfo", EspaResponse.class);
     }
     private void setTextsByResponse(){
-
         aboutUsTitleText.setText(espaResponse.corporate.get(0).getTitle());
         aboutUsContentText.setText(espaResponse.corporate.get(0).content.getTr());
+        //TODO (3)  AboutUsActivity'deki  hakkımızda text içeriği uygun formatta gösterilecek
         missionVisionTitle.setText(espaResponse.corporate.get(1).getTitle());
         missionVisionContentText.setText(espaResponse.corporate.get(1).content.getTr());
         qualityPolicyTitle.setText(espaResponse.corporate.get(2).getTitle());

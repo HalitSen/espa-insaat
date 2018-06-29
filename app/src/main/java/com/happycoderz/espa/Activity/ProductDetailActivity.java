@@ -38,7 +38,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         product = new Product();
         product = (Product) getIntent().getSerializableExtra("productDetail");
 
-
+        //TODO(2) -- api ye ürün açıklamas eklenince modelde description düncellenecek
         productDescription.setText(product.getDescription());
         productNameTitle.setText(product.getTitle());
         Picasso.with(this)

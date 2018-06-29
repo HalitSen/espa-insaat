@@ -33,7 +33,7 @@ public class GaleryActivity extends AppCompatActivity {
 
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         photos = new ArrayList<Photo>();
-
+        //TODO(1) --  API'ye fotolar eklenince bu fotolar apidekiler ile güncellenecek
         photos.add(new Photo("http://www.sevimaluminyum.com/wp-content/uploads/2017/09/surme-kapi-7-768x660.jpg"));
         photos.add(new Photo("http://www.sevimaluminyum.com/wp-content/uploads/2017/09/izmirpanjur-com-plastik-dograma-2.jpg"));
         photos.add(new Photo("http://www.sevimaluminyum.com/wp-content/uploads/2017/09/7C1319-F07B57-102656-59B107-904023-7DCB91-768x432.jpg"));
