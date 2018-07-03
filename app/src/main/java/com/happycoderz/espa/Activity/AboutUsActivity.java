@@ -3,6 +3,7 @@ package com.happycoderz.espa.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -56,7 +57,7 @@ public class AboutUsActivity extends AppCompatActivity {
     }
     private void setTextsByResponse(){
         aboutUsTitleText.setText(espaResponse.corporate.get(0).getTitle());
-        aboutUsContentText.setText(espaResponse.corporate.get(0).content.getTr());
+        aboutUsContentText.setText(Html.fromHtml(espaResponse.corporate.get(0).content.getTr()));
         //TODO (3)  AboutUsActivity'deki  hakkımızda text içeriği uygun formatta gösterilecek
         missionVisionTitle.setText(espaResponse.corporate.get(1).getTitle());
         missionVisionContentText.setText(espaResponse.corporate.get(1).content.getTr());

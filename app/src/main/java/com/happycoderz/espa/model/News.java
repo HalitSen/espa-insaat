@@ -3,7 +3,9 @@ package com.happycoderz.espa.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class News {
+import java.io.Serializable;
+
+public class News implements Serializable{
 
     @SerializedName("id")
     String id;
@@ -14,7 +16,7 @@ public class News {
     @SerializedName("content")
     public NewsContent content;
 
-    public class NewsContent {
+    public class NewsContent implements  Serializable {
         @SerializedName("tr")
         public String tr;
 

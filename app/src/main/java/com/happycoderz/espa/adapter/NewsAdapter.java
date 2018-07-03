@@ -22,6 +22,7 @@ public class NewsAdapter extends PagerAdapter {
     ArrayList<News> news;
     private Context context;
     CacheHelper cacheHelper;
+    NewsClickListener listener;
 
     public NewsAdapter(Context context) {
         this.context = context;
@@ -29,8 +30,12 @@ public class NewsAdapter extends PagerAdapter {
         espaResponse = cacheHelper.getObject("espaInfo", EspaResponse.class);
     }
 
+    public void setListener(NewsClickListener listener) {
+        this.listener = listener;
+    }
+
     @Override
-    public Object instantiateItem(ViewGroup container, int position) {
+    public Object instantiateItem(ViewGroup container, final int position) {
         LayoutInflater inflater = LayoutInflater.from(context);
 
         ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.espa_news_layout, container, false);
@@ -42,8 +47,14 @@ public class NewsAdapter extends PagerAdapter {
         Picasso.with(context)
                 .load(imageUrl)
                 .into(newsImage);
-
+        layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onNewsClicked(espaResponse.news.get(position));
+            }
+        });
         container.addView(layout);
+
         return layout;
     }
 
@@ -61,4 +72,10 @@ public class NewsAdapter extends PagerAdapter {
     public void destroyItem(ViewGroup container, int position, Object object) {
         container.removeView((View) object);
     }
+
+    public interface NewsClickListener {
+        void onNewsClicked (News news);
+    }
 }
+
+

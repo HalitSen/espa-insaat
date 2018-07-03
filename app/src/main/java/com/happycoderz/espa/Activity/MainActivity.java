@@ -1,6 +1,7 @@
 package com.happycoderz.espa.Activity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import com.happycoderz.espa.adapter.NewsAdapter;
 import com.happycoderz.espa.helper.CacheHelper;
 import com.happycoderz.espa.model.Category;
 import com.happycoderz.espa.model.EspaResponse;
+import com.happycoderz.espa.model.News;
 import com.happycoderz.espa.model.Product;
 import com.happycoderz.espa.model.SubCategory;
 
@@ -25,9 +27,10 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.OnItemClick;
 
-public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener {
+public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener, NewsAdapter.NewsClickListener {
 
     @BindView(R.id.toolbar)
     android.support.v7.widget.Toolbar toolbar;
@@ -36,12 +39,6 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
     @BindView(R.id.container)
     ViewPager mViewPager;
-    @BindView(R.id.circle_1)
-    ImageView circleOne;
-    @BindView(R.id.circle_2)
-    ImageView circleTwo;
-    @BindView(R.id.circle_3)
-    ImageView circleThree;
 
     NewsAdapter newsAdapter;
     ExpandableListViewAdapter expandableListViewAdapter;
@@ -82,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         expandablListView.setAdapter(expandableListViewAdapter);
         expandablListView.setExpanded(true);
         expandablListView.setFocusable(false);
+        newsAdapter.setListener(this);
     }
 
     @Override
@@ -142,4 +140,18 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         }
     }
 
+    @Override
+    public void onNewsClicked(News news) {
+        Intent i = new Intent(this, NewsDetailActivity.class);
+        i.putExtra("news", news);
+        startActivity(i);
+    }
+
+    @OnClick(R.id.online_payment_layout)
+    public void onPaymentClicked () {
+        String url = "http://www.espainsaat.com";
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
+    }
 }
