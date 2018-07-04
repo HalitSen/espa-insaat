@@ -76,9 +76,6 @@ public class SplashActivity extends AppCompatActivity {
 
                 EspaResponse espaResponse = response.body();
 
-                Log.v("first corporate id : ", String.valueOf(espaResponse.corporate.get(0).getId()));
-                Log.v("first product : ", String.valueOf(espaResponse.categories.get(0).products.get(0).getTitle()));
-
                 cacheHelper.putObject("espaInfo",espaResponse);
                 openMain();
             }

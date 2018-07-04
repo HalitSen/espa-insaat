@@ -62,6 +62,7 @@ public class ProductActivity extends AppCompatActivity {
     void onProductListClicked(AdapterView<?> parent, int position){
 
         product =products.get(position);
+        product.setRelatedProducts(products);
         Intent intentDetail = new Intent(this,ProductDetailActivity.class);
         intentDetail.putExtra("productDetail",product);
         startActivity(intentDetail);
@@ -83,7 +84,7 @@ public class ProductActivity extends AppCompatActivity {
             products = subCategory.getProduct();
             productAdapter = new ProductAdapter(this, products);
             productListView.setAdapter(productAdapter);
-            productLabelText.setText(products.get(position).getTitle());
+            productLabelText.setText(subCategory.getTitle());
         }
     }
 }

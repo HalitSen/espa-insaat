@@ -21,4 +21,5 @@
     <string name="product_toolbar_title_text">ÜRÜNLER</string>
     <string name="product_label_text">pvc pencere sistemleri</string>
     <string name="label_news">HABERLER</string>
+    <string name="label_product_detail">ÜRÜN DETAYI</string>
 </resources>

@@ -3,6 +3,7 @@ package com.happycoderz.espa.model;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Product implements Serializable{
 
@@ -17,6 +18,8 @@ public class Product implements Serializable{
 
     @SerializedName("image")
     String image;
+
+    private  ArrayList<Product> relatedProducts = new ArrayList<>();
 
     String description;
 
@@ -69,5 +72,13 @@ public class Product implements Serializable{
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public ArrayList<Product> getRelatedProducts() {
+        return relatedProducts;
+    }
+
+    public void setRelatedProducts(ArrayList<Product> relatedProducts) {
+        this.relatedProducts = relatedProducts;
     }
 }
