@@ -41,8 +41,10 @@ public class NewsAdapter extends PagerAdapter {
         ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.espa_news_layout, container, false);
 
         TextView newsTitle = (TextView) layout.findViewById(R.id.espa_news_text);
+        TextView date = (TextView) layout.findViewById(R.id.espa_news_date);
         ImageView newsImage = (ImageView) layout.findViewById(R.id.espa_news_image);
         newsTitle.setText(espaResponse.news.get(position).getTitle());
+        date.setText(espaResponse.news.get(position).getDate());
         String imageUrl = espaResponse.news.get(position).getImage();
         Picasso.with(context)
                 .load(imageUrl)

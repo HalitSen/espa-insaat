@@ -38,7 +38,7 @@ public class SubCategoryAdapter extends ArrayAdapter<SubCategory>{
         }
         final SubCategory subCategory = getItem(position);
         holder.subCatItemText.setText(subCategory.getTitle());
-
+        holder.count.setText(String.valueOf(subCategory.getProduct().size()));
         return convertView;
     }
 
@@ -46,6 +46,8 @@ public class SubCategoryAdapter extends ArrayAdapter<SubCategory>{
     public static class ViewHolder {
         @BindView(R.id.sub_cat_item_text_view)
         TextView subCatItemText;
+        @BindView(R.id.count)
+        TextView count;
 
         public ViewHolder(View view) {
             ButterKnife.bind(this, view);

@@ -36,8 +36,6 @@ public class NewsDetailActivity extends AppCompatActivity {
     FrameLayout frameLayout;
     @BindView(R.id.news_title)
     TextView newsTitle;
-    @BindView(R.id.product_detail_layout)
-    LinearLayout productDetailLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

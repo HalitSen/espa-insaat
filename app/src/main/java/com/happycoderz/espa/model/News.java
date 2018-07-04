@@ -13,6 +13,9 @@ public class News implements Serializable{
     @SerializedName("title")
     String title;
 
+    @SerializedName("date")
+    String date = "23 Aralık 2017";
+
     @SerializedName("content")
     public NewsContent content;
 
@@ -79,5 +82,13 @@ public class News implements Serializable{
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

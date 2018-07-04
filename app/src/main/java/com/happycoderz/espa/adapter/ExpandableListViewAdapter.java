@@ -40,13 +40,17 @@ public class ExpandableListViewAdapter extends ArrayAdapter<Category>{
         }
         final Category category = getItem(position);
         holder.itemText.setText(category.getTitle());
+        int count = (category.getProducts() == null)?category.getSubCategories().size() : category.getProducts().size();
+        holder.count.setText(String.valueOf(count));
 
         return convertView;
     }
 
     public static class ViewHolder {
-        @BindView(R.id.expanded_item_text_view)
+        @BindView(R.id.sub_cat_item_text_view)
         TextView itemText;
+        @BindView(R.id.count)
+        TextView count;
 
         public ViewHolder(View view) {
             ButterKnife.bind(this, view);

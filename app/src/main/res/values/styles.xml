@@ -13,7 +13,7 @@
 
     <style name="MyOverflowIconStyle" parent="Widget.AppCompat.ActionButton.Overflow">
         <item name="android:tint">#ffffff</item>
+        <item name="android:src">@drawable/ic_action_more</item>
     </style>
-
 
 </resources>

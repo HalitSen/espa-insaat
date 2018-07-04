@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="com.happycoderz.espa.Activity.MainActivity"
     tools:layout_editor_absoluteY="25dp">
@@ -38,51 +39,41 @@
             <android.support.v4.view.ViewPager
                 android:id="@+id/container"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="212dp"
                 android:layout_alignParentTop="true"
-                android:background="#ececec">
+                android:background="#ececec"/>
 
-            </android.support.v4.view.ViewPager>
-
-            <FrameLayout
-                android:id="@+id/frame_layout"
+            <me.relex.circleindicator.CircleIndicator
+                android:id="@+id/indicator"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:layout_below="@id/container"
-                android:padding="10dp">
+                android:background="#ececec"
+                app:ci_width="8dp"
+                app:ci_height="8dp"
+                app:ci_drawable="@drawable/indicator_selected"
+                app:ci_drawable_unselected="@drawable/indicator_unselected"
+                android:layout_height="36dp"/>
 
-
-                <LinearLayout
-                    android:id="@+id/online_payment_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="75dp"
-                    android:background="@drawable/payment_rounded_bg"
-                    android:orientation="horizontal"
-                    android:padding="12dp">
-
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginRight="36dp"
-                        android:src="@drawable/credit_card_icon" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/online_pay_text"
-                        android:textColor="#fff"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-            </FrameLayout>
+            <ImageView
+                android:id="@+id/online_payment_layout"
+                android:layout_width="match_parent"
+                android:layout_below="@id/indicator"
+                android:adjustViewBounds="true"
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/pay_btn"/>
 
             <LinearLayout
                 android:id="@+id/product_group_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/frame_layout"
+                android:layout_below="@id/online_payment_layout"
                 android:orientation="vertical"
-                android:padding="10dp">
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:layout_marginTop="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -96,7 +87,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="6dp"
                         android:layout_marginRight="36dp"
-                        android:text="ESPA İNŞAAT"
+                        android:text="ESPA GRUP"
                         android:textColor="#fff"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -116,6 +107,9 @@
                 android:id="@+id/expandable_list_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:background="#ffffff"
+                android:layout_marginRight="16dp"
                 android:layout_below="@id/product_group_layout">
 
             </com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView>

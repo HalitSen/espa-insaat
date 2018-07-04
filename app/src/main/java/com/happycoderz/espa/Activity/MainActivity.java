@@ -29,6 +29,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnItemClick;
+import me.relex.circleindicator.CircleIndicator;
 
 public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener, NewsAdapter.NewsClickListener {
 
@@ -39,6 +40,8 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
     @BindView(R.id.container)
     ViewPager mViewPager;
+    @BindView(R.id.indicator)
+    CircleIndicator circleIndicator;
 
     NewsAdapter newsAdapter;
     ExpandableListViewAdapter expandableListViewAdapter;
@@ -68,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
         newsAdapter = new NewsAdapter(this);
         mViewPager.setAdapter(newsAdapter);
+        circleIndicator.setViewPager(mViewPager);
 
         mViewPager.addOnPageChangeListener(this);
         categories = new ArrayList<Category>();
@@ -149,7 +153,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
     @OnClick(R.id.online_payment_layout)
     public void onPaymentClicked () {
-        String url = "http://www.espainsaat.com";
+        String url = "https://online.espagrup.com";
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.setData(Uri.parse(url));
         startActivity(i);
